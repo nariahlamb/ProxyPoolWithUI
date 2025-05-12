@@ -33,18 +33,35 @@
 |--------------|-------------------------------|-------------|
 | 悠悠网络代理   | https://uu-proxy.com/         |              |
 | 快代理       | https://www.kuaidaili.com/     |              |
-| 全网代理     | http://www.goubanjia.com/      |              |
-| 66代理       | http://www.66ip.cn/            |              |
 | 云代理       | http://www.ip3366.net/         |              |
-| 免费代理库   | https://ip.jiangxianli.com/     |              |
-| 小幻HTTP代理 | https://ip.ihuan.me/            |              |
 | 89免费代理   | https://www.89ip.cn/            |              |
-| ProxyScan   | https://www.proxyscan.io/      |              |
-| 开心代理     | http://www.kxdaili.com/         |              |
-| 西拉代理     | http://www.xiladaili.com/       |              |
-| 小舒代理     | http://www.xsdaili.cn/          |              |
 | ProxyList   | https://www.proxy-list.download/|              |
 | ProxyScrape | https://proxyscrape.com/        |国内无法直接访问 |
+| 永久免费公共代理池 | https://proxy.scdn.io/        |              |
+| Free Proxy List | https://free-proxy-list.net/        |国内无法直接访问 |
+| Free Proxy List | https://www.sslproxies.org/        |国内无法直接访问 |
+| Fresh Public Proxies | https://list.proxylistplus.com/        |              |
+| Free Proxy List | https://geonode.com/free-proxy-list        |              |
+| 【失效删除】全网代理     | http://www.goubanjia.com/      |              |
+| 【失效删除】66代理       | http://www.66ip.cn/            |              |
+| 【失效删除】免费代理库   | https://ip.jiangxianli.com/     |              |
+| 【失效删除】小幻HTTP代理 | https://ip.ihuan.me/            |              |
+| 【失效删除】ProxyScan   | https://www.proxyscan.io/      |              |
+| 【失效删除】开心代理     | http://www.kxdaili.com/         |              |
+| 【失效删除】西拉代理     | http://www.xiladaili.com/       |              |
+| 【失效删除】小舒代理     | http://www.xsdaili.cn/          |              |
+
+## 配置文件说明
+
+目前支持以下配置，端口默认5000，默认不开启Basic Auth，如果想开启，请设置`BASIC_AUTH=True`，并设置用户名、密码参数。
+
+```
+PORT=5000
+BASIC_AUTH=False
+BASIC_USER=test
+BASIC_PASSWORD=test
+```
+
 
 ## 运行本项目
 
@@ -79,7 +96,7 @@ python3 main.py
 1. 下载项目文件
 
 ```bash
-git clone https://github.com/OxOOo/ProxyPoolWithUI.git
+git clone https://github.com/Arronlong/ProxyPoolWithUI.git
 cd ProxyPoolWithUI
 ```
 
