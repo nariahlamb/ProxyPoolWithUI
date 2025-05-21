@@ -16,11 +16,20 @@
 推荐:
 * [HTTP代理原理](https://zhuanlan.zhihu.com/p/349028243)
 
-项目Demo：[http://chenyu0x00.com:8888/](http://chenyu0x00.com:8888/)
 
-**2021年3月8日测试，项目运行半小时后，支持访问HTTPS的代理有40+，支持访问HTTP的代理有100+。**
+**2025年5月12日测试，项目运行半小时后，有效代理有300+。**
 
 如果你知道有好用的代理源，或者是发现本项目存在一些问题，欢迎通过Issues和我们讨论。
+
+
+## 项目说明：
+
+本项目是对原项目基础上做了改造，具体变更内容如下：
+
+1. 停用了所有已失效的源
+2. 新增了4个源
+3. 增加端口自定义配置
+4. 增加启用basic auth开关配置
 
 ## WEB管理界面截图
 
@@ -51,6 +60,7 @@
 | 【失效删除】西拉代理     | http://www.xiladaili.com/       |              |
 | 【失效删除】小舒代理     | http://www.xsdaili.cn/          |              |
 
+
 ## 配置文件说明
 
 目前支持以下配置，端口默认5000，默认不开启Basic Auth，如果想开启，请设置`BASIC_AUTH=True`，并设置用户名、密码参数。
@@ -63,7 +73,7 @@ BASIC_PASSWORD=test
 ```
 
 
-## 运行本项目
+## 本地运行
 
 本项目目前只适配了Python3,请确保你的电脑上安装了3.6或更高版本的Python软件。
 
@@ -90,6 +100,30 @@ python3 main.py
 ![term](docs/term.png)
 
 4. 使用浏览器打开`http://localhost:5000`，可以看到WEB管理界面。
+
+## Serv00上运行
+
+在Serv00上部署的话，要使用python3.8来安装依赖和启动
+
+
+1. 下载代码
+
+```bash
+git clone https://github.com/OxOOo/ProxyPoolWithUI.git
+```
+
+2. 安装Python依赖(在`ProxyPoolWithUI`目录下执行)
+
+```bash
+python3.8 -m pip --user -r requirements.txt # 3.8版本，只为当前用户安装，避免permission问题
+```
+
+3. 启动(在`ProxyPoolWithUI`目录下执行)
+
+```bash
+python3.8 main.py #启动脚本
+```
+
 
 ## Docker构建项目
 

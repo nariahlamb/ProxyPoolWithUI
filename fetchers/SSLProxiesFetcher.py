@@ -17,8 +17,8 @@ class SSLProxiesFetcher(BaseFetcher):
         """
 
         proxies = []
-        # 使用正则表达式匹配 IP:Port 格式
-        pattern = r'(?P<ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\:(?P<port>\d+)'
+        ip_regex = re.compile(r'^\d+\.\d+\.\d+\.\d+$')
+        port_regex = re.compile(r'^\d+$')
 
         
         # https代理 高级匿名代理ip提取
@@ -27,10 +27,12 @@ class SSLProxiesFetcher(BaseFetcher):
         for line in doc('tr').items():
             tds = list(line('td').items())
             if len(tds) >= 2:
-                ip = tds[0].text().strip().split(":")[0]
-                port = tds[0].text().strip().split(":")[1]
-                http = "http" if tds[0].text().strip().split(":")[6]=="no" else "https"
+                ip = tds[0].text().strip()
+                port = tds[1].text().strip()
+                http = "http" if tds[6].text().strip()=="no" else "https"
                 if re.match(ip_regex, ip) is not None and re.match(port_regex, port) is not None:
                     proxies.append((http, ip, int(port)))
         
-        return list(set(proxies))
+        proxies = list(set(proxies))
+
+        return proxies

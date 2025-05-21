@@ -18,18 +18,22 @@ class ProxyListPlusFetcher(BaseFetcher):
         """
         urls = [f'https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-{page}' for page in range(1, 7)]
 
+        proxies = []
+        ip_regex = re.compile(r'^\d+\.\d+\.\d+\.\d+$')
+        port_regex = re.compile(r'^\d+$')
+
         for url in urls:
             time.sleep(1)
             html = requests.get(url, timeout=10).text
             doc = pq(html)
             for line in doc('tr').items():
                 tds = list(line('td').items())
-                if len(tds) >= 2:
-                    ip = tds[0].text().strip().split(":")[1]
-                    port = tds[0].text().strip().split(":")[2]
+                if len(tds) >= 3:
+                    ip = tds[1].text().strip()
+                    port = tds[2].text().strip()
+                    http = "http" if tds[6].text().strip()=="no" else "https"
                     if re.match(ip_regex, ip) is not None and re.match(port_regex, port) is not None:
-                        proxies.append(('http', ip, int(port)))
-
+                        proxies.append((http, ip, int(port)))
 
         proxies = list(set(proxies))
 

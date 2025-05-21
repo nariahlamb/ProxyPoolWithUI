@@ -5,6 +5,7 @@ import requests
 from pyquery import PyQuery as pq
 import re
 import time
+import json
 
 class ProxyList_GennodeFetcher(BaseFetcher):
     """
@@ -24,7 +25,7 @@ class ProxyList_GennodeFetcher(BaseFetcher):
         for url in urls:
             time.sleep(1)
             html = requests.get(url, timeout=10).text
-            free = json.loads(data)['data']
+            free = json.loads(html)['data']
             result = [(item['protocols'][0], item['ip'], item['port']) for item in free]
             proxies.extend(result)
 

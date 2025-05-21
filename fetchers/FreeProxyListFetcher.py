@@ -17,20 +17,23 @@ class FreeProxyListFetcher(BaseFetcher):
         """
 
         proxies = []
-        # 使用正则表达式匹配 IP:Port 格式
-        pattern = r'(?P<ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\:(?P<port>\d+)'
+        ip_regex = re.compile(r'^\d+\.\d+\.\d+\.\d+$')
+        port_regex = re.compile(r'^\d+$')
 
         
         # https代理 高级匿名代理ip提取
         html = requests.get('https://free-proxy-list.net', timeout=10).text
-        matches = re.findall(pattern, html)
+        doc = pq(html)
+        for line in doc('tr').items():
+            tds = list(line('td').items())
+            if len(tds) >= 2:
+                ip = tds[0].text().strip()
+                port = tds[1].text().strip()
+                http = "http" if tds[6].text().strip()=="no" else "https"
+                if re.match(ip_regex, ip) is not None and re.match(port_regex, port) is not None:
+                    proxies.append((http, ip, int(port)))
+        
+        proxies = list(set(proxies))
 
-        # 构造结果列表
-        result = [('http', match[0], int(match[1])) for match in matches]
-        proxies.extend(result)
-        # 构造结果列表
-        result = [('https', match[0], int(match[1])) for match in matches]
-        proxies.extend(result)
+        return proxies
 
-            
-        return list(set(proxies))
