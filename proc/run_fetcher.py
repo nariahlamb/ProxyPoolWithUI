@@ -39,7 +39,7 @@ def main(proc_lock):
             time.sleep(PROC_FETCHER_SLEEP)
             continue
 
-        @func_set_timeout(30)
+        @func_set_timeout(60)
         def fetch_worker(fetcher):
             f = fetcher()
             proxies = f.fetch()

@@ -23,7 +23,7 @@ class Proxy_scdnFetcher(BaseFetcher):
         urls = ['https://proxy.scdn.io/api/get_proxy.php?protocol=http&count=20' for page in range(1, 11)]
 
         for url in urls:
-            time.sleep(1)
+            time.sleep(0.3)
             html = requests.get(url, timeout=10).text
             free = json.loads(html)['data']['proxies']
             result = [('http', item.split(":")[0], item.split(":")[1]) for item in free]
@@ -31,7 +31,7 @@ class Proxy_scdnFetcher(BaseFetcher):
 
         urls = ['https://proxy.scdn.io/api/get_proxy.php?protocol=https&count=20' for page in range(1, 11)]
         for url in urls:
-            time.sleep(1)
+            time.sleep(0.3)
             html = requests.get(url, timeout=10).text
             free = json.loads(html)['data']['proxies']
             result = [('https', item.split(":")[0], item.split(":")[1]) for item in free]
@@ -39,7 +39,7 @@ class Proxy_scdnFetcher(BaseFetcher):
 
         urls = ['https://proxy.scdn.io/api/get_proxy.php?protocol=socks4&count=20' for page in range(1, 11)]
         for url in urls:
-            time.sleep(1)
+            time.sleep(0.3)
             html = requests.get(url, timeout=10).text
             free = json.loads(html)['data']['proxies']
             result = [('socks4', item.split(":")[0], item.split(":")[1]) for item in free]
@@ -47,7 +47,7 @@ class Proxy_scdnFetcher(BaseFetcher):
 
         urls = ['https://proxy.scdn.io/api/get_proxy.php?protocol=socks5&count=20' for page in range(1, 11)]
         for url in urls:
-            time.sleep(1)
+            time.sleep(0.3)
             html = requests.get(url, timeout=10).text
             free = json.loads(html)['data']['proxies']
             result = [('socks5', item.split(":")[0], item.split(":")[1]) for item in free]
