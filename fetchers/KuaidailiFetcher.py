@@ -16,8 +16,7 @@ class KuaidailiFetcher(BaseFetcher):
         """
         
         urls = []
-        urls = urls + [f'https://www.kuaidaili.com/free/inha/{page}/' for page in range(1, 11)]
-        urls = urls + [f'https://www.kuaidaili.com/free/intr/{page}/' for page in range(1, 11)]
+        urls = urls + [f'https://www.kuaidaili.com/free/fps/{page}/' for page in range(1, 11)]
 
         proxies = []
 
@@ -29,4 +28,6 @@ class KuaidailiFetcher(BaseFetcher):
                 port = int(item.find('td[data-title="PORT"]').text())
                 proxies.append(('http', ip, port))
         
-        return list(set(proxies))
+        proxies = list(set(proxies))
+
+        return proxies
