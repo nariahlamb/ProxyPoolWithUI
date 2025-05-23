@@ -2,9 +2,7 @@ version: '3'
 
 services:
   proxy_pool:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: nariahlamb31/proxy-pool
     container_name: proxy_pool
     restart: always
     ports:
