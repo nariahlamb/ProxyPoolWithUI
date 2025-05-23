@@ -284,6 +284,12 @@ if __name__ == '__main__':
 
 ![workflow](docs/workflow.png)
 
+## 自动化构建
+
+本项目已配置GitHub Actions，可以自动构建Docker镜像并推送到DockerHub。当向主分支推送代码或创建新标签时，会自动触发构建流程。
+
+详细的配置说明请参考[GitHub Actions自动构建说明](GITHUB_ACTIONS.md)。
+
 ## 验证算法相关
 
 1. 如何验证代理可用
