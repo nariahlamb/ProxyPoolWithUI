@@ -148,6 +148,75 @@ docker run -p 5000:5000 -v /root/ProxyPoolWithUI:/proxy -d proxy_pool
 `/root/ProxyPoolWithUI`为clone下来的项目目录路径，请自行更改
 
 
+## Docker Compose构建部署（推荐）
+
+相比于直接使用Docker部署，Docker Compose提供了更简单、更自动化的部署方式：
+
+1. 下载项目文件
+
+```bash
+git clone https://github.com/nariahlamb/ProxyPoolWithUI.git
+cd ProxyPoolWithUI
+```
+
+2. 使用Docker Compose构建并启动
+
+```bash
+docker-compose up -d
+```
+
+这条命令会根据项目目录中的`docker-compose.yml`文件自动构建镜像并启动服务。
+
+3. 查看服务状态
+
+```bash
+docker-compose ps
+```
+
+4. 查看服务日志
+
+```bash
+docker-compose logs -f
+```
+
+5. 停止服务
+
+```bash
+docker-compose down
+```
+
+详细的部署和管理说明请参考[部署文档](DEPLOYMENT.md)。
+
+## 使用管理脚本
+
+项目提供了一个管理脚本`manage.sh`，可以用来方便地管理服务：
+
+```bash
+# 启动服务
+./manage.sh start
+
+# 停止服务
+./manage.sh stop
+
+# 重启服务
+./manage.sh restart
+
+# 查看服务状态
+./manage.sh status
+
+# 查看服务日志
+./manage.sh logs
+
+# 更新到最新版本
+./manage.sh update
+
+# 创建环境变量文件
+./manage.sh create-env
+
+# 显示帮助信息
+./manage.sh help
+```
+
 ## 使用代理
 
 1. API接口

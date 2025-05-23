@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  proxy_pool:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: proxy_pool
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/proxy
+    environment:
+      - PORT=5000
+      - BASIC_AUTH=False
+      - BASIC_USER=test
+      - BASIC_PASSWORD=test 

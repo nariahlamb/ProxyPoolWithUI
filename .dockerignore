@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+.github
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/*.so
+**/.pytest_cache/
+**/.coverage
+**/.coverage.*
+**/htmlcov/
+**/.tox/
+**/.nox/
+**/.hypothesis/
+**/.egg-info/
+**/.eggs/
+**/*.egg
+
+# 数据库文件（使用volume挂载）
+*.db
+*.sqlite3
+
+# 日志文件
+*.log
+
+# 杂项
+.DS_Store
+.env.sample
+.env.local
+.env.development
+.env.test
+.env.production
+.env.example
+README.md
+LICENSE
+docs/
+test/ 
