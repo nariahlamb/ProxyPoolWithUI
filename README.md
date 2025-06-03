@@ -117,7 +117,8 @@ cd ProxyPoolWithUI
 2. 安装Python依赖(在`ProxyPoolWithUI`目录下执行)
 
 ```bash
-python3.8 -m pip --user -r requirements.txt # 3.8版本，只为当前用户安装，避免permission问题
+python3.8 -m pip install --user base64
+python3.8 -m pip install --user -r requirements.txt # 3.8版本，只为当前用户安装，避免permission问题
 ```
 
 3. 启动(在`ProxyPoolWithUI`目录下执行)

@@ -5,6 +5,7 @@ import requests
 from pyquery import PyQuery as pq
 import re
 import json
+from py_mini_racer import py_mini_racer
 
 class KuaidailiFetcher(BaseFetcher):
     """
@@ -31,6 +32,17 @@ class KuaidailiFetcher(BaseFetcher):
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/79.0.3945.130 Chrome/79.0.3945.130 Safari/537.36'
         }
 
+        # 创建 JavaScript 上下文
+        ctx = py_mini_racer.MiniRacer()
+        js_code = requests.get(urls[0], timeout=10, headers=headers).text
+
+        # 使用正则表达式替换 document[...] 的赋值
+        pattern = r'document\[(.*?)\]\s*=.*</script>'
+        replacement = r'return "__tst_status="+a(0)+"#; "+ a(1)+"; channelid=0;"};calculate();'
+
+        # 替换
+        new_js_code = re.sub(pattern, replacement, js_code.replace("<script>","function calculate(){"), flags=re.DOTALL)
+        headers["Cookie"]=ctx.eval(new_js_code)
 
         proxies = []
 

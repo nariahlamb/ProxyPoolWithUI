@@ -15,4 +15,5 @@ Werkzeug==1.0.1
 PySocks==1.7.1
 func-timeout==4.3.5
 dotenv
-base64
+py_mini_racer
+
