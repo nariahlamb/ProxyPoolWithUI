@@ -81,6 +81,7 @@ BASIC_PASSWORD=test
 
 ```bash
 git clone https://github.com/Arronlong/ProxyPoolWithUI.git
+cd ProxyPoolWithUI
 ```
 
 2. 安装Python依赖(在`ProxyPoolWithUI`目录下执行)
@@ -110,6 +111,7 @@ python3 main.py
 
 ```bash
 git clone https://github.com/Arronlong/ProxyPoolWithUI.git
+cd ProxyPoolWithUI
 ```
 
 2. 安装Python依赖(在`ProxyPoolWithUI`目录下执行)
