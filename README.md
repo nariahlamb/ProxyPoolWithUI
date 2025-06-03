@@ -80,7 +80,7 @@ BASIC_PASSWORD=test
 1. 下载代码
 
 ```bash
-git clone https://github.com/OxOOo/ProxyPoolWithUI.git
+git clone https://github.com/Arronlong/ProxyPoolWithUI.git
 ```
 
 2. 安装Python依赖(在`ProxyPoolWithUI`目录下执行)
